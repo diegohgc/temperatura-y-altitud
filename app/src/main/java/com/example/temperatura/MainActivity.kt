@@ -12,6 +12,8 @@ import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
@@ -34,6 +36,13 @@ class MainActivity : AppCompatActivity() {
         webView = findViewById(R.id.webview)
         adView = findViewById(R.id.adView)
         adView.loadAd(AdRequest.Builder().build())
+
+        val rootLayout = findViewById<android.view.View>(R.id.root)
+        ViewCompat.setOnApplyWindowInsetsListener(rootLayout) { view, insets ->
+            val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            view.setPadding(bars.left, bars.top, bars.right, bars.bottom)
+            WindowInsetsCompat.CONSUMED
+        }
 
         val settings: WebSettings = webView.settings
         settings.javaScriptEnabled = true
