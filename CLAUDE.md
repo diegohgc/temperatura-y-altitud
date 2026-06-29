@@ -16,17 +16,17 @@ monetización.
   `diegohgc/temperatura` (la PWA) — esta APK no necesita recompilarse salvo que cambie algo
   nativo (permisos, anuncios, icono, etc.), igual que con `tandas-2`.
 
-## AdMob — IMPORTANTE antes de publicar
-- Actualmente usa los **IDs de prueba oficiales de Google** (App ID y Ad Unit ID), tanto en
-  `AndroidManifest.xml` (`com.google.android.gms.ads.APPLICATION_ID`) como en
-  `activity_main.xml` (`ads:adUnitId`). Sirven para compilar y ver el banner de "Test Ad",
-  pero **no generan ingresos reales**.
-- Antes de publicar en Play Store:
-  1. Crear cuenta en https://admob.google.com (puede vincularse a la misma cuenta de
-     Google Play Console).
-  2. Crear la app dentro de AdMob y un bloque de anuncios "Banner".
-  3. Sustituir el App ID de prueba en `AndroidManifest.xml` y el Ad Unit ID en
-     `activity_main.xml` por los reales.
+## AdMob
+- Usa IDs **reales** de la cuenta de AdMob del usuario (app "Tiempo minimalista" dentro de
+  AdMob, nombre interno — no tiene que coincidir con el nombre público de la app):
+  - App ID: `ca-app-pub-5015878857432448~7059763758` (en `AndroidManifest.xml`)
+  - Ad Unit ID (banner): `ca-app-pub-5015878857432448/6686595753` (en `activity_main.xml`)
+- Cuenta de pagos vinculada: AdSense (España), particular. Umbral de pago 70€/mes.
+  Formulario fiscal W-8BEN aprobado (retención 0% para servicios/derechos de autor,
+  válido hasta diciembre de 2029). La cuenta bancaria para cobrar Google la solicitará
+  más adelante, cuando los ingresos se acerquen al umbral — no hace falta añadirla antes.
+- Hasta que la app esté publicada en Play Store y pase la fase de pruebas (20 testers,
+  14 días), los anuncios no generan ingresos reales aunque el banner real ya esté activo.
 
 ## Compilación
 - `./gradlew assembleDebug` genera `app/build/outputs/apk/debug/app-debug.apk` (probado y
@@ -35,9 +35,8 @@ monetización.
   firma configurado (pendiente de generar).
 
 ## Pendiente
-- Generar/elegir icono propio (actualmente reutiliza el icono genérico por defecto de
-  Android Studio, copiado de `tandas-2`).
 - Generar keystore de firma para builds de release.
-- Sustituir IDs de prueba de AdMob por los reales.
 - Crear cuenta de Google Play Console (pago único 25$) y completar ficha de la app
   (privacidad, capturas, descripción) para publicar.
+- Fase de pruebas cerrada de Play Store (20 testers, 14 días) antes de poder publicar
+  en producción.

@@ -14,10 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Temperatura">
 
-        <!-- TODO: sustituir por tu App ID real de AdMob antes de publicar -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713" />
+            android:value="ca-app-pub-5015878857432448~7059763758" />
 
         <activity
             android:name=".MainActivity"
